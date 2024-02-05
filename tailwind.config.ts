@@ -16,7 +16,7 @@ const config: Config = {
       },
       fontSize: {
         'heading-lg': ['3.5rem', { lineHeight: '100%', fontWeight: '900' }],
-        'heading-md': ['2.5rem', { lineHeight: '100%', fontWeight: '900' }],
+        'heading-md': ['2.5rem', { lineHeight: '100%', fontWeight: '700' }],
         'heading-sm': ['1.5rem', { lineHeight: '110%', fontWeight: '900' }],
         'heading-xs': ['1.25rem', { lineHeight: '110%', fontWeight: '700' }],
 
