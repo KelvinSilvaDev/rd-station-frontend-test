@@ -12,15 +12,12 @@ export function Button({ text, type, variant, enabled, className }: ButtonProps)
   const secondary = ' bg-color-primary hover:bg-color-primary-50 text-white'
   const button3dShadow = 'shadow-md hover:shadow-lg'
   return (
-    <>
-      <button
-        className={`px-6 relative transition-all duration-300 py-3 font-extrabold ${variant === 'primary' ? primary : secondary } ${className}`}
-        disabled={!enabled}
-        type={type}
-      >
-        {text}
-        {/* <div className="absolute -bottom-1 mx-auto border-t-[9px] border-black border-b-[100px] inset-x-0" /> */}
-      </button>
-    </>
+    <button
+      className={`px-6 relative transition-all duration-300 py-3 font-extrabold ${variant === 'primary' ? primary : secondary} ${className}`}
+      disabled={!enabled}
+      type={type}
+    >
+      {text}
+    </button>
   )
 }

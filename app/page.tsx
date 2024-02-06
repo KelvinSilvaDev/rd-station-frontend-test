@@ -1,5 +1,4 @@
 import { BusinessCardGenerator } from "./components/BusinessCardGenerator";
-import { TextComponent } from "./components/TextComponent";
 
 export default function Home() {
   return (

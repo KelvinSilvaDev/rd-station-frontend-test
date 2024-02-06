@@ -24,14 +24,29 @@ export function useFormData() {
 export function FormDataProvider({ children }:React.FormHTMLAttributes<HTMLFormElement>) {
   const [formData, setFormData] = useState<Record<string, any>>({});
 
+  const saveData = (data: Record<string, any>) => {
+    localStorage.setItem('formData', JSON.stringify(data));
+  }
+
+  const loadData = () => {
+    const data = localStorage.getItem('formData');
+    if (data) {
+      setFormData(JSON.parse(data));
+    }
+  }
+
   useEffect(() => {
-    setFormData({
-      children
-    })
-  }, [children]);
+    loadData();
+  }, []);
+
+ const setFormDataAndSave = (data: Record<string, any>) => {
+    setFormData(data);
+    saveData(data);
+  }
+
 
   return (
-    <FormDataContext.Provider value={{ formData, setFormData }}>
+    <FormDataContext.Provider value={{ formData, setFormData: setFormDataAndSave }}>
       {children}
     </FormDataContext.Provider>
   );

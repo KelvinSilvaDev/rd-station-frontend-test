@@ -1,13 +1,15 @@
 'use client'
 import { z } from 'zod';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { TextComponent } from "./TextComponent"
+import { useCallback } from 'react';
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+
+import { useFormData } from '../contexts/FormDataContext';
+import { TextComponent } from "./TextComponent"
 import formImg from '../../assets/landingpage.png'
 import { Button } from "./Button";
-import { useForm } from 'react-hook-form';
-import { useCallback } from 'react';
-import { useFormData } from '../contexts/FormDataContext';
 
 
 
@@ -26,7 +28,10 @@ type FormValues = z.infer<typeof formSchema>;
 
 export function BusinessCardGenerator() {
 
-  const { formData, setFormData } = useFormData();
+  const router = useRouter()
+
+
+  const { setFormData } = useFormData();
   
   const { register, handleSubmit, getValues, setValue, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -50,7 +55,7 @@ export function BusinessCardGenerator() {
   
   const onSubmit = (data: FormValues) => {
     setFormData(data);
-    console.log(formData)
+    router.push('/card')
   };
 
 

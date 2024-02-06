@@ -8,6 +8,9 @@ import { FormDataProvider } from "./contexts/FormDataContext";
 export const metadata: Metadata = {
   title: "Teste RD Station",
   description: "Teste RD Station",
+  icons: {
+    icon: "./favicon.ico",
+  },
 };
 
 export default function RootLayout({
