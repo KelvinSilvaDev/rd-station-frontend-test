@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gerador de Cartão de Visitas RD Station
 
-## Getting Started
+Esse projeto tem como escopo realizar uma simples manipulação de dados inseridos pelo usuário através de um formulário.
 
-First, run the development server:
+A aplicação foi desenvolvida para fins de avaliação em processo seletivo da companhia RD Station.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   React
+-   Tailwind
+-   NextJS
+-   Typescript
+-   React Hook Form
+-   Zod
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Requisitos do Sistema
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+O projeto foi construído utilizando o NodeJs na versão 20. Por esse motivo é recomendado utilizar a versão LTS para melhor compatibilidade.
 
-## Learn More
+## Instalação
 
-To learn more about Next.js, take a look at the following resources:
+### Clonar o Repositório
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`git clone https://github.com/KelvinSilvaDev/rd-station-frontend-test.git
+cd rd-station-frontend-test` 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Instalar Dependências do projeto
 
-## Deploy on Vercel
+`pnpm install` ou `npm install`  ou `yarn install`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Iniciar o Projeto
+
+`npm run dev` ou `pnpm run dev` ou `yarn dev`
+
+
+## Deploy
+
+O deploy da aplicação foi realizado na vercel que por sua vez possui uma ótima integração com o NextJs e pode ser acessado a qualquer momento através do link: https://rd-station-frontend-test-ecru.vercel.app/
+
+## Contato
+
+📱Tel/Whatsapp: 11 9 5837-8212.
+✉️ E-mail: kelvinsilvadev@gmail.com
+🧳 Linkedin: https://www.linkedin.com/in/kelvin-oliveira-romao/
+
+## Agradecimentos
+
+Agradeço imensamente ao time de R&S da RD Station e principalmente a Sheila Miqueli pela rica oportunidade e confiança com essa entrega. Espero que esse projeto seja o suficiente para demonstrar meu compromentimento e dedicação, tal como minhas habilidades e valores a agregar ao time de tecnologia.
