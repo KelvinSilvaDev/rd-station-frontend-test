@@ -10,6 +10,7 @@ import { useFormData } from '../contexts/FormDataContext';
 import { TextComponent } from "./TextComponent"
 import formImg from '../../assets/landingpage.png'
 import { Button } from "./Button";
+import { LinkComponent } from './Link';
 
 
 
@@ -32,27 +33,27 @@ export function BusinessCardGenerator() {
 
 
   const { setFormData } = useFormData();
-  
+
   const { register, handleSubmit, getValues, setValue, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     shouldUnregister: true
   });
-  
-  const handleKeyUp = useCallback((e:React.FormEvent<HTMLInputElement>) => {
+
+  const handleKeyUp = useCallback((e: React.FormEvent<HTMLInputElement>) => {
     e.currentTarget.maxLength = 15;
     let value = e.currentTarget.value;
     if (!/\(\d{2}\) \d{1} \d{4}-\d{4}/.test(value)) {
       value = value.replace(/\D/g, "");
       value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
       value = value.replace(/(\d)(\d{4})$/, "$1-$2");
-      
+
       setValue('telefone', value);
     }
-    
+
     e.currentTarget.value = value;
-  },[setValue])
-  
-  
+  }, [setValue])
+
+
   const onSubmit = (data: FormValues) => {
     setFormData(data);
     router.push('/card')
@@ -71,13 +72,13 @@ export function BusinessCardGenerator() {
           <form onSubmit={handleSubmit(onSubmit)} className=" grid grid-cols-4 gap-6">
             <label htmlFor="name" className="col-span-4 w-full flex flex-col" >
               <TextComponent text="Nome*" type="body-sm" className="text-white" />
-              <input {...register('nome')} type="text" placeholder="nome@email.com" className="py-2 px-3" />
+              <input {...register('nome')} type="text" placeholder="Seu Nome Completo" className="py-2 px-3" />
               {errors.nome && errors.nome.message && <p>{errors.nome.message}</p>}
 
             </label>
             <label htmlFor="telefone" className="col-span-4 lg:col-span-2 flex flex-col">
               <TextComponent text="Telefone*" type="body-sm" className="text-white" />
-              <input {...register('telefone')} onKeyUp={handleKeyUp} type="text" placeholder="(00) 0 0000-0000"  className="py-2 px-3" />
+              <input {...register('telefone')} onKeyUp={handleKeyUp} type="text" placeholder="(00) 0 0000-0000" className="py-2 px-3" />
               {errors.telefone && errors.telefone.message && <p>{errors.telefone.message} {getValues(["telefone"])}</p>}
             </label>
             <label htmlFor="email" className="col-span-4 lg:col-span-2 flex flex-col">
@@ -92,7 +93,13 @@ export function BusinessCardGenerator() {
             <div className="px-6">
               <ul className="marker:text-white list-disc -pl-2">
                 <li><TextComponent text="Ao preencher o formulário, concordo * em receber comunicações de acordo com meus interesses." type="body-sm" className="text-color-gray-30" /> </li>
-                <li><TextComponent text="Ao informar meus dados, eu concordo com a Política de privacidade." type="body-sm" className="text-color-gray-30" /></li>
+                <li>
+                  <div className='flex items-center gap-1'>
+                    <TextComponent text="Ao informar meus dados, eu concordo com a " type="body-sm" className="text-color-gray-30" />
+                    <LinkComponent href="https://legal.rdstation.com/pt/privacy-policy/" target='__blank' text="Política de Privacidade" className="text-color-gray-30 underline" />
+                  </div>
+                </li>
+                {/* <li><TextComponent text="Ao informar meus dados, eu concordo com a " type="body-sm" className="text-color-gray-30" /></li> */}
               </ul>
             </div>
             <TextComponent text="* Você pode alterar suas permissões de comunicação a qualquer tempo." type="body-sm" className="text-color-gray-30 text-left" />

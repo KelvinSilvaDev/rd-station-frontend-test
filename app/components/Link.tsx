@@ -5,15 +5,17 @@ export function LinkComponent({
   text,
   href,
   className,
-  children
+  children,
+  target
 }: Readonly<{
   text?: string;
   href: string;
+  target?: string;
   className?: string;
   children?: React.ReactNode;
 }>) {
   return (
-    <Link href={href}>
+    <Link href={href} target={target} >
         {text ? <TextComponent text={text} type="body-sm" className={className} /> : null}
         {children}
     </Link>
